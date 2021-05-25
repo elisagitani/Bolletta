@@ -26,12 +26,12 @@ namespace Bolletta
 
         public string StampaDati()
         {
-            return $"Nome: {Utente.Nome} Cognome: {Utente.Cognome} kwh consumate:{Kwh}, Conto: {Conto} euro";
+            return $"Nome: {Utente.Nome} \nCognome: {Utente.Cognome} \nkwh consumate:{Kwh}, \nTotale da pagare: {Conto} euro";
         }
 
         public decimal CalcoloBolletta()
         {
-           Conto= quotaFissa + (decimal)(Kwh * 10);
+            Conto= quotaFissa + (decimal)(Kwh * 10);
             return Conto;
         }
        
