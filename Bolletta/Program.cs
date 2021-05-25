@@ -6,13 +6,10 @@ namespace Bolletta
     {
         static void Main(string[] args)
         {
-            const decimal quotaFissa = 40;
-            string nome = null, cognome = null;
-            double kwh = 0;
-            int scelta = 0;
-            decimal bolletta = 0;
-
             
+            int scelta = 0;
+           
+            Bolletta b = new Bolletta();
             do
             {
                 do
@@ -28,15 +25,15 @@ namespace Bolletta
                 switch (scelta)
                 {
                     case 1:
-                        InserisciDati(out nome, out cognome, out kwh);
+                        b = Helper.CreaBolletta();
                         break;
 
                     case 2:
-                        CalcoloBolletta(kwh, quotaFissa, out bolletta);
+                        decimal totale = b.CalcoloBolletta();
                         Console.WriteLine("Importo bolletta calcolato!");
                         break;
                     case 3:
-                        StampaDati(nome, cognome, bolletta);
+                        Console.WriteLine(b.StampaDati());
                         break;
                     case 0:
                         return;
@@ -48,34 +45,35 @@ namespace Bolletta
 
 
 
-        private static void CalcoloBolletta(double kwh, decimal quotaFissa, out decimal bolletta)
-        {
+        //    private static void CalcoloBolletta(double kwh, decimal quotaFissa, out decimal bolletta)
+        //    {
 
-            bolletta = quotaFissa + (decimal)(kwh * 10);
+        //        bolletta = quotaFissa + (decimal)(kwh * 10);
 
-        }
-
-
-        private static void InserisciDati(out string nome, out string cognome, out double kwh)
-        {
-            Console.WriteLine("Inserisci nome");
-            nome = Console.ReadLine();
-            Console.WriteLine("Inserisci cognome");
-            cognome = Console.ReadLine();
-            do
-            {
-                Console.WriteLine("Inserisci kwh");
-
-            } while (!(double.TryParse(Console.ReadLine(), out kwh)));
-        }
+        //    }
 
 
+        //    private static void InserisciDati(out string nome, out string cognome, out double kwh)
+        //    {
+        //        Console.WriteLine("Inserisci nome");
+        //        nome = Console.ReadLine();
+        //        Console.WriteLine("Inserisci cognome");
+        //        cognome = Console.ReadLine();
+        //        do
+        //        {
+        //            Console.WriteLine("Inserisci kwh");
 
-        private static void StampaDati(string nome, string cognome, decimal bolletta)
-        {
-            Console.WriteLine($"Cliente: {nome} {cognome} Importo bolletta: {bolletta} euro");
-        }
+        //        } while (!(double.TryParse(Console.ReadLine(), out kwh)));
+        //    }
 
+
+
+        //    private static void StampaDati(string nome, string cognome, decimal bolletta)
+        //    {
+        //        Console.WriteLine($"Cliente: {nome} {cognome} Importo bolletta: {bolletta} euro");
+        //    }
+
+        //}
     }
-}
 
+}
