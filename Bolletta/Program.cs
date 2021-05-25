@@ -31,7 +31,7 @@ namespace Bolletta
                         break;
 
                     case 2:
-                        decimal totale = b.CalcoloBolletta();
+                        b.CalcoloBolletta();
                         Console.WriteLine("Importo bolletta calcolato!");
                         Console.WriteLine("\n");
                         break;
